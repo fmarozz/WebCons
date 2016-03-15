@@ -1,0 +1,479 @@
+/*==========================================================================
+        NEW AS
+==========================================================================*/
+.menuButton
+{
+    vertical-align: top;
+    height: 30px;
+    width: 100%;
+    border: none;
+    margin: 0;
+}
+
+.rigaSeparatoreFiltriSpecifici
+{
+    border-top-style: solid;
+    border-top-color: #003781;
+    border-top-width: 3px;
+    width: 100%;
+}
+
+.tabellaPulsanti
+{
+    background-color: #e5e5e5;
+    border: 2px solid #b8b8b8;
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.filtriTitolo
+{
+    background-color: #D2D2D2;
+    padding-left: 4px;
+    height: 24px;
+    width: 100%;
+}
+
+.filtriCombo
+{
+    width: 100%;
+}
+
+.filtriLatoSx
+{
+    background-color: #e5e5e5;
+    border: 2px solid #b8b8b8;
+    vertical-align: top;
+}
+
+.filtriCentrali
+{
+    background-color: #e5e5e5;
+    border: 2px solid #b8b8b8;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.filtriLatoDx
+{
+    background-color: #e5e5e5;
+    border: 2px solid #b8b8b8;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.arrowLeft
+{
+    background-image: url("../Images/arrow_left_1.png");
+    background-position: center center;
+    height: 28px;
+    width: 28px;
+    display: block;
+}
+
+.arrowLeft:hover
+{
+    cursor: pointer;
+    background-image: url("../Images/arrow_left_h.png");
+}
+
+.arrowRight
+{
+    background-image: url("../Images/arrow_right_1.png");
+    background-position: center center;
+    height: 28px;
+    width: 28px;
+    display: block;
+}
+
+.arrowRight:hover
+{
+    cursor: pointer;
+    background-image: url("../Images/arrow_right_h.png");
+}
+
+/*==========================================================================
+        colori alternati della Lista e degli Indicatori
+==========================================================================*/
+
+
+.tabHeaders th
+{
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    background-color: #D2D2D2;
+    color: #003781;
+}
+
+.tabRow_1
+{
+    border-top: 1px solid #999999;
+    background-color: #ECECEC;
+}
+
+.tabRow_2
+{
+    border-top: 1px solid #999999;
+    background-color: #D2D2D2;
+}
+
+.tabCellAlignLeft
+{
+    text-align: left;
+    padding-left: 4px;
+}
+
+.tabCellaAlignRight
+{
+    text-align: right;
+    padding-right: 4px;
+}
+
+
+
+/*==========================================================================
+        Analisi - Indicatori
+==========================================================================*/
+.colonnaCheckIndicatori_1
+{
+    border-top: 1px solid #999999;
+    background-color: #ECECEC;
+    text-align: center;
+}
+
+.colonnaCheckIndicatori_2
+{
+    border-top: 1px solid #999999;
+    background-color: #D2D2D2;
+    text-align: center;
+}
+
+.bottoneTabellaIndicatori
+{
+    border-collapse: collapse;
+    background-color: #426bb3;
+    color: White;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    height: 27px;
+    line-height: 30px;
+    float: right;
+    width: 80px;
+    cursor: pointer;
+}
+
+/*==========================================================================
+        Filtri - Filtri Specifici pulsanti PopUp
+==========================================================================*/
+
+.choice
+{
+    background-image: url("../Images/filtra.png");
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-family: Verdana, Sans-Serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.choiceDisable
+{
+    background-color: #a8a8a8;
+    width: 40px;
+    height: 20px;
+    display: block;
+    float: right;
+    font-family: Verdana, Sans-Serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*========================================================================
+==========================================================================
+==========================================================================
+       OLD
+==========================================================================
+==========================================================================
+========================================================================*/
+
+/*Stile della master page*/
+
+.maincontainer
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: White;
+}
+
+
+/*******************************/
+/* DEFINIZIONE DEL MAIN LAYOUT */
+/*******************************/
+
+
+.tableContainer
+{
+    margin-left: 1px;
+    margin-right: 1px;
+    height: 375px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 5px;
+}
+
+a.genericBtn:link, a.genericBtn:visited, a.genericBtn:hover
+{
+    background-image: url("../Images/button_allianz_standard_bg.png");
+    background-repeat: repeat-x;
+    border: 1px solid #043E7F;
+    border-radius: 12px;
+    font-family: Verdana, Sans-Serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.filter-close
+{
+    background-image: url("../Images/backClose.png");
+    width: 150px;
+    height: 21px;
+    display: block;
+    float: right;
+    background-color: transparent;
+    color: #848484 !important;
+    cursor: pointer;
+    text-align: center;
+}
+
+.live-button
+{
+    background: url(../Images/bg_button_dsb.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    width: 310px;
+    height: 80px;
+    font-family: Arial, Sans-Serif;
+    margin: auto;
+    vertical-align: middle;
+    border: 0;
+    letter-spacing: 2px;
+    line-height: 190%;
+}
+
+.rep-des
+{
+    display: block;
+    font-size: 19px;
+    width: 310px;
+    padding-top: 26px;
+    text-align: center;
+}
+
+.dashboardButtons td a
+{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.dsbSep
+{
+    border: 2px solid #4A7EBB;
+    width: 99%;
+    margin: auto;
+}
+
+#titoloPagina
+{
+    color: #003781 !important;
+    font-family: Verdana,Sans-Serif !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    margin: auto;
+}
+
+.titoloSezione
+{
+    color: #003781 !important;
+    font-family: Verdana,Sans-Serif !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    margin: auto;
+}
+
+.labelContainer
+{
+    background-color: #CFD0D2;
+    color: #000000;
+    padding: 4px 0 4px 6px;
+    height: auto;
+    width: 130px;
+}
+
+.objContainer
+{
+    background-color: #ECECEC;
+    border: 1px solid #CFD0D2;
+    height: 18px;
+    width: 134px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.label
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 90%;
+}
+
+.msgGenerico
+{
+    color: Red;
+    font-weight: bold;
+}
+
+/*******************************/
+/* Tabelle                     */
+/*******************************/
+.tableCons
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    border: 1px solid #999;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.tableCons table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.tableCons tr:last-child td:last-child
+{
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.tableCons table tr:first-child td:first-child
+{
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.tableCons table tr:first-child td:last-child
+{
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.tableCons tr:last-child td:first-child
+{
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.tableCons tr:hover td
+{
+    background-color: #ffffff;
+}
+.tableCons td
+{
+    vertical-align: middle;
+    /*
+    background: -o-linear-gradient(bottom, #efefef 5%, #ffffff 100%);
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #efefef), color-stop(1, #ffffff) );
+    background: -moz-linear-gradient( center top, #efefef 5%, #ffffff 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efefef", endColorstr="#ffffff");
+    background: -o-linear-gradient(top,#efefef,ffffff);
+    background-color: #efefef;
+    */
+    border: 1px solid #999;
+    border-width: 0px 1px 1px 0px;
+    text-align: left;
+    padding: 4px;
+    font-weight: normal;
+    color: #000000;
+}
+.tableCons tr:last-child td
+{
+    border-width: 0px 1px 0px 0px;
+}
+.tableCons tr td:last-child
+{
+    border-width: 0px 0px 1px 0px;
+}
+.tableCons tr:last-child td:last-child
+{
+    border-width: 0px 0px 0px 0px;
+}
+.tableCons tr:first-child td
+{
+    background: -o-linear-gradient(bottom, #CDCED0 5%, #ffffff 100%);
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #CDCED0), color-stop(1, #ffffff) );
+    background: -moz-linear-gradient( center top, #CDCED0 5%, #ffffff 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#CDCED0", endColorstr="#ffffff");
+    background: -o-linear-gradient(top,#CDCED0,#ffffff);
+    background-color: #CDCED0;
+    border: 0px solid #999;
+    text-align: center;
+    border-width: 0px 0px 1px 1px;
+    font-weight: bold;
+    color: #000000;
+}
+.tableCons tr:first-child:hover td
+{
+    background: -o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+    background: -moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");
+    background: -o-linear-gradient(top,#cccccc,b2b2b2);
+    background-color: #cccccc;
+}
+.tableCons tr:first-child td:first-child
+{
+    border-width: 0px 0px 1px 0px;
+}
+.tableCons tr:first-child td:last-child
+{
+    border-width: 0px 0px 1px 1px;
+}

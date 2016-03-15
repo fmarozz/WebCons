@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+@using WebCons.WebUI.Utils
+@model WebCons.WebUI.Models.MainModel
+<div class="masterMainContainer layoutDashboard" id="boxStatistiche">
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+            nascondiBox('#boxStatistiche');
+        });
+
+        function mostraStatistiche() {
+            nascondiBox('#boxGrid');
+            mostraBox('#boxStatistiche');
+        }
+    </script>
+
+    <!-- Contenitore pagina -->
+    <div class="wrapper">
+        <!-- Titolo della pagina -->
+        <div style="padding-bottom: 4px;">
+            <span id="titoloPagina">
+                Statistiche
+            </span>  
+        </div>
+        <!-- Separatore Intestazione da Corpo -->
+        <hr class="rigaHeader"/>
+        <!-- Corpo della pagina -->
+        <div class="masterBodyRendered">
+
+        </div>
+        <!-- Separatore Corpo da Footer -->
+        <hr class="rigaFooter"/>
+    </div>
+</div>

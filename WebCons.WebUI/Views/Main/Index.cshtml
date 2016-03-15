@@ -1,0 +1,29 @@
+﻿@{ 
+    Layout = "~/Views/Master.cshtml";
+}
+@using WebCons.WebUI.Utils
+@model WebCons.WebUI.Models.MainModel    
+@using (Html.BeginForm(null, null, FormMethod.Post, new {id = "form"}))
+{
+    <div class="maincontainerpage">
+        <script type="text/javascript" language="javascript">
+           
+        </script>
+
+        @{
+            if (!Model.UserIsLogged)
+            {
+                Html.RenderPartial("~/Views/Shared/_Login.cshtml");
+            }
+            else
+            {
+                Html.RenderPartial("~/Views/Shared/_Dashboard.cshtml");
+                <div style="height: 20px;">
+                    
+                </div>
+                Html.RenderPartial("~/Views/Shared/_Grid.cshtml");
+                Html.RenderPartial("~/Views/Shared/_Stats.cshtml");
+            }
+        }
+    </div>
+}

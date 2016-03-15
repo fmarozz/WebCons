@@ -1,0 +1,101 @@
+﻿@using WebCons.WebUI.Utils
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+
+    @*** Titolo ***@
+    <title>
+        Aubay DWH-AMS Web Consuntivi
+    </title>
+
+    @*** WebCons CSS ***@
+    <link href="@Url.Content("~/Content/menu_portale.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/dynamicStyles.css")" rel="stylesheet" type="text/css"/>
+
+    @*** Allianz CSS ***@
+    <link href="@Url.Content("~/Content/Allianz/custom-screen.css")" rel="stylesheet" type="text/css" />
+
+    @*** Kendo CSS ***@     
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/styles/kendo.allianz.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.dataviz.blueopal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/kendo.compatibility.css")" rel="stylesheet" type="text/css" />
+  
+    @*** Kendo JS ***@
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/kendo.all.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/kendo.aspnetmvc.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/kendo.modernizr.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/cultures/kendo.culture.it-IT.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/jszip.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/cultures/kendo.culture.it-IT.min.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/messages/kendo.messages.it-IT.min.js")" type="text/javascript"></script>
+   
+    @*** Scripts JS ***@
+    @*<script src="@Url.Content("~/Scripts/Allianz/indexOf.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/ajax/ajaxLoader.js")" type="text/javascript"></script>
+    <script src="@Url.Action("GetCostanti", "Costanti")" type="text/javascript"></script>
+</head>
+<body>
+<div style="width: 100%; text-align: center;">
+    <a href="@Url.Action("Index", "Main")">
+        <img src="@Url.Content("~/Images/ams/logo_ams_prj.png")" alt="AMS Web Consuntivi" style="padding-top: 4px;"/>
+    </a>
+</div>
+
+@RenderBody()
+
+<script type="text/javascript" language="javascript">
+    kendo.culture("it-IT");
+
+    $(document).ready(function() {
+        //alert('iphone zeta');
+    });
+
+    function inCostruzione() {
+        alert('TODO');
+    }
+
+    function nascondiBox(nomeDiv) {
+        $(nomeDiv).slideUp();
+    }
+
+    function mostraBox(nomeDiv) {
+        $(nomeDiv).slideDown();
+    }
+
+    function ajaxLoaderStart() {
+        document.body.style.cursor = 'wait';
+        new ajaxLoader($(".wrapper"));    
+    }
+
+    function logga() {
+        ajaxLoaderStart();
+
+        $("#form").attr('action', '@Url.Action("Index", "Main")');
+        $("#form").submit();
+    }
+
+    function navigate(target) {
+        if (isInternetExplorer()) {
+            alert('Il browser utilizzato non è supportato per la navigazione di questo applicativo.');
+        } else {
+            document.body.style.cursor = 'wait';
+            var ajax = new ajaxLoader($(".wrapper"));
+            //var params = $('#form').serialize();
+            window.location.href = target; // + '?' + params;
+        }
+    }
+
+</script>
+</body>
+</html>

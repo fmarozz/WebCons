@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+@using WebCons.WebUI.Utils
+@model WebCons.WebUI.Models.MainModel
+<div class="masterMainContainer layoutDashboard" id="boxDashboard">
+    <!-- Contenitore pagina -->
+    <div class="wrapper">
+        <!-- Titolo della pagina -->
+        <div style="padding-bottom: 4px;">
+            <span id="titoloPagina">
+                Dashboard di @Model.Nominativo (@Model.Username)
+            </span>  
+            <a href="@Url.Action("Logout", "Main")">
+                <div style=" float: right;">
+                    <img src="@Url.Content("~/Images/logout-red.png")" alt="Logout" title="Logout" />
+                </div>
+            </a>
+        </div>
+        <!-- Separatore Intestazione da Corpo -->
+        <hr class="rigaHeader" />
+        <!-- Corpo della pagina -->
+        <div class="masterBodyRendered">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="100">
+                    </td>
+                    <td>
+                        <div class="ts_button" onclick="javascript:mostraGrid();">
+                            <div class="ts_button_content">
+                                Inserimento<br/>
+                                Consuntivi
+                            </div>
+                            <div style="height: 16px;">
+                                
+                            </div>
+                            <div class="ts_button_content">
+                                @*<b>1</b>*@
+                            </div>
+                        </div>
+                    </td>
+                    <td width="40">
+                    </td>
+                    <td>
+                        <div class="ts_button" onclick="javascript:mostraStatistiche();">
+                            <div class="ts_button_content">
+                                Statistiche<br/>
+                                JIRA/Consuntivi
+                            </div>
+                            <div style="height: 16px;">
+                                
+                            </div>
+                            <div class="ts_button_content">
+                                @*<b>1</b>*@
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- Separatore Corpo da Footer -->
+        <hr class="rigaFooter" />
+    </div>
+</div>

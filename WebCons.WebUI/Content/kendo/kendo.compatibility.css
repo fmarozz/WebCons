@@ -1,0 +1,33 @@
+﻿.k-grid th a 
+{
+	position:static
+} 
+
+.k-grid .k-grid-header th a 
+{ 
+    padding: .5em .2em .4em; 
+}
+
+html body 
+{
+	border: 0
+   
+} 
+
+.k-state-selected.k-state-focused, .k-state-selected.k-state-highlight {
+   
+} 
+
+.k-panelbar > .k-item > .k-state-focused {
+  
+ 
+   background-image:none,-webkit-linear-gradient(top,#f6f6f6 0,#eaeaea 100%);
+   background-image:none,-moz-linear-gradient(top,#f6f6f6 0,#eaeaea 100%);
+   background-image:none,-o-linear-gradient(top,#f6f6f6 0,#eaeaea 100%);
+   background-image:none,linear-gradient(to bottom,#f6f6f6 0,#eaeaea 100%);
+    background-position: 50% 50%;
+    background-repeat: repeat;  
+}
+.k-panelbar > li > .k-link {
+    color: black;   
+}

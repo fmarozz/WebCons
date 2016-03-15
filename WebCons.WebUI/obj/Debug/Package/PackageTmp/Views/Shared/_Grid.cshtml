@@ -1,0 +1,112 @@
+﻿@{
+    Layout = null;
+}
+@using Kendo.Mvc.UI
+@using WebCons.WebUI
+@model WebCons.WebUI.Models.MainModel
+<div class="masterMainContainer layoutDashboard" id="boxGrid">
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            nascondiBox('#boxGrid');
+        });
+
+        function mostraGrid() {
+            nascondiBox('#boxStatistiche');
+            mostraBox('#boxGrid');
+        }
+    </script>
+    <!-- Contenitore pagina -->
+    <div class="wrapper">
+        <!-- Titolo della pagina -->
+        <div style="padding-bottom: 4px;">
+            <span id="titoloPagina">Consuntivi </span>
+        </div>
+        <!-- Separatore Intestazione da Corpo -->
+        <hr class="rigaHeader" />
+        <!-- Corpo della pagina -->
+        <div class="masterBodyRendered">
+           
+             <div id="grid"></div>
+
+    @(Html.Kendo().Grid<MovimentiViewModel>()
+    .Name("grid1")
+    .ToolBar(x=>x.Excel())
+    .Events(e => e.ExcelExport("excelExport"))
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.DataCompetenza).Width(120).Format("{0:dd/MM/yy}");
+        columns.Bound(p => p.Progetto).Width(120).ClientTemplate("#: Progetto.Descrizione #");
+        columns.Bound(p => p.Fase).Width(120).ClientTemplate("#: Fase.Descrizione #");
+        columns.Bound(p => p.Unita).Width(120).ClientTemplate("#: Unita.Descrizione #");
+        columns.Bound(p => p.Presidio).Width(120).ClientTemplate("#: Presidio.Descrizione #")  ;
+        columns.Bound(p => p.CodiceJira).Width(120) ;
+        columns.Bound(p => p.OreAssenza).Width(120);
+        columns.Bound(p => p.Risorsa).Width(120).ClientTemplate("#: Risorsa.Descrizione #");
+        columns.Bound(p => p.OreConsuntivate).Width(120);
+        columns.Bound(p => p.Nota).Width(120);
+   
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+    .ToolBar(toolbar => toolbar.Create())
+            .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+        .Model(model =>
+        {
+            model.Id(p => p.Id);
+            
+        })
+        .Create(update => update.Action("EditingPopup_Create", "Grid"))
+        .Read(read => read.Action("EditingPopup_Read", "Grid"))
+        .Update(update => update.Action("EditingPopup_Update", "Grid"))
+        .Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
+    )
+          )
+<script>
+    function excelExport(e) {
+        var sheet = e.workbook.sheets[0];
+
+        var template1 = kendo.template(this.columns[1].template);
+        var template2 = kendo.template(this.columns[2].template);
+        var template3 = kendo.template(this.columns[3].template);
+        var template4 = kendo.template(this.columns[4].template);
+        var template7 = kendo.template(this.columns[7].template);
+        var data = this.dataSource.view();
+
+        for (var i = 0; i < data.length; i++) {
+            sheet.rows[i + 1].cells[1].value = template1(data[i]);
+            sheet.rows[i + 1].cells[2].value = template2(data[i]);
+            sheet.rows[i + 1].cells[3].value = template3(data[i]);
+            sheet.rows[i + 1].cells[4].value = template4(data[i]);
+            sheet.rows[i + 1].cells[7].value = template7(data[i]);
+        }
+    }
+</script>         
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+            </script>
+
+        </div>
+        <!-- Separatore Corpo da Footer -->
+        <hr class="rigaFooter" />
+    </div>
+</div>

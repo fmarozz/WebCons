@@ -1,0 +1,13 @@
+﻿@using Kendo.Mvc.UI
+@using WebCons.Data
+
+@{
+    
+var nome = ViewData.TemplateInfo.GetFullHtmlFieldName("");
+var lista = (IEnumerable<AnagraficaBase>)ViewData[nome + "_Data"];
+}
+@(Html.Kendo().DropDownList()
+.DataValueField("Id")
+.DataTextField("Descrizione")
+    .Name(nome )  
+    .BindTo(lista))

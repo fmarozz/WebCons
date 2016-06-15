@@ -77,9 +77,9 @@
       <Project>{4EA72948-7870-49ED-BC0C-EECFB98E889E}</Project>
       <Name>WebCons.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebCons.WebUI\WebCons.WebUI.csproj">
+    <ProjectReference Include="..\WebCons.WebUI\WebCons.UI.csproj">
       <Project>{F2B2CD66-D891-4E92-8DE8-F67A825FD0B4}</Project>
-      <Name>WebCons.WebUI</Name>
+      <Name>WebCons.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCons.WebUI", "C:\WebCons\WebCons.WebUI\WebCons.WebUI.csproj", "{F2B2CD66-D891-4E92-8DE8-F67A825FD0B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCons.UI", "WebCons.WebUI\WebCons.UI.csproj", "{F2B2CD66-D891-4E92-8DE8-F67A825FD0B4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4EA72948-7870-49ED-BC0C-EECFB98E889E} = {4EA72948-7870-49ED-BC0C-EECFB98E889E}
 	EndProjectSection

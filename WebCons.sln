@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCons.WebUI", "C:\WebCons\WebCons.WebUI\WebCons.WebUI.csproj", "{F2B2CD66-D891-4E92-8DE8-F67A825FD0B4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4EA72948-7870-49ED-BC0C-EECFB98E889E} = {4EA72948-7870-49ED-BC0C-EECFB98E889E}
@@ -13,19 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCons.Test", "WebCons.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCons.Data", "WebCons.Data\WebCons.Data.csproj", "{4EA72948-7870-49ED-BC0C-EECFB98E889E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A597E937-3EDF-4E7A-B9B9-C1B466DFA684}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://alm.allianzit/tfs/almallianz
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WebCons.WebUI\\WebCons.WebUI.csproj
-		SccProjectName1 = WebCons.WebUI
-		SccLocalPath1 = WebCons.WebUI
-		SccProjectUniqueName2 = WebCons.Test\\WebCons.Test.csproj
-		SccProjectName2 = WebCons.Test
-		SccLocalPath2 = WebCons.Test
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

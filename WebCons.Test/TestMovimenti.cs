@@ -56,7 +56,7 @@ namespace WebCons.Test
                 .CheckProperty(x=>x.Nota, "note")
                 .CheckProperty(x=>x.OreAssenza,10.5m)
                 .CheckProperty(x=>x.OreConsuntivate,20.5m)
-                .CheckProperty(x => x.CodiceJira,"nere")
+                .CheckProperty(x => x.Jira,"nere")
                 .CheckProperty(x=>x.DataCompetenza, DateTime.Now.Date)
                 .VerifyTheMappings();
          

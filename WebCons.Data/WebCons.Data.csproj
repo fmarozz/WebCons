@@ -71,8 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\AnagraficaBase.cs" />
-    <Compile Include="Data\Jira.cs" />
     <Compile Include="Data\Fase.cs" />
+    <Compile Include="Data\Jira.cs" />
     <Compile Include="Data\Movimenti.cs" />
     <Compile Include="Data\Presidio.cs" />
     <Compile Include="Data\Progetto.cs" />

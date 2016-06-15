@@ -12,6 +12,7 @@ namespace WebCons.WebUI
         public int Id { get; set;   }
         [UIHint("DDL")]
         public Risorsa Risorsa { get; set; }
+       
         public DateTime DataCompetenza { get; set; }
         [UIHint("DDL")]
         public Progetto Progetto { get; set; }
@@ -21,7 +22,8 @@ namespace WebCons.WebUI
         public Unita Unita { get; set; }
         [UIHint("DDL")]
         public Presidio Presidio { get; set; }
-        public String CodiceJira { get; set; }
+        [UIHint("DDL")]
+        public Jira Jira { get; set; }
         public Decimal OreAssenza { get; set; }
         public Decimal OreConsuntivate { get; set; }
         public String Nota { get; set; }

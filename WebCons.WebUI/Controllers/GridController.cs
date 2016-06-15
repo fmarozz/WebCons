@@ -23,7 +23,7 @@ namespace WebCons.WebUI.Controllers
         public ActionResult EditingPopup_Read([DataSourceRequest] DataSourceRequest request)
         {
             var model = repository.FindAll().Select(x => x.ToViewModel<Movimenti, MovimentiViewModel>());
-            return Json(model.ToDataSourceResult(request));
+            return Json(model.ToDataSourceResult(request),JsonRequestBehavior.AllowGet);
         }
 
         [Transaction]
@@ -35,7 +35,7 @@ namespace WebCons.WebUI.Controllers
                 repository.Save(viewModel.ToEntity<MovimentiViewModel, Movimenti>());
             }
 
-            return Json(new[] { viewModel }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { viewModel }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
         }
 
          [Transaction]
@@ -47,7 +47,7 @@ namespace WebCons.WebUI.Controllers
                 Movimenti movimenti = repository.FindById(viewModel.Id);
                 repository.Update(movimenti.UpdateFromViewModel(viewModel));
             }
-            return Json(new[] { viewModel }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { viewModel }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
         }
 
          [Transaction]
@@ -59,7 +59,7 @@ namespace WebCons.WebUI.Controllers
                 repository.Delete(product);
             }
 
-            return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { product }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
         }
 
     }

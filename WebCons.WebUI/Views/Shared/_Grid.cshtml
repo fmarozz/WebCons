@@ -4,6 +4,8 @@
 @using Kendo.Mvc.UI
 @using WebCons.WebUI
 @model WebCons.WebUI.Models.MainModel
+@using WebCons.Data;
+
 <div class="masterMainContainer layoutDashboard" id="boxGrid">
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
@@ -34,33 +36,39 @@
     .Events(e => e.ExcelExport("excelExport"))
     .Columns(columns =>
     {
-        columns.Bound(p => p.DataCompetenza).Width(120).Format("{0:dd/MM/yy}");
+        columns.Bound(p => p.DataCompetenza).Format("{0:dd/MM/yyyy}").Width(90);
         columns.Bound(p => p.Progetto).Width(120).ClientTemplate("#: Progetto.Descrizione #");
         columns.Bound(p => p.Fase).Width(120).ClientTemplate("#: Fase.Descrizione #");
         columns.Bound(p => p.Unita).Width(120).ClientTemplate("#: Unita.Descrizione #");
         columns.Bound(p => p.Presidio).Width(120).ClientTemplate("#: Presidio.Descrizione #")  ;
-        columns.Bound(p => p.CodiceJira).Width(120) ;
-        columns.Bound(p => p.OreAssenza).Width(120);
+        columns.Bound(p => p.Jira).Width(120).ClientTemplate("#: Jira.Codice #");
         columns.Bound(p => p.Risorsa).Width(120).ClientTemplate("#: Risorsa.Descrizione #");
-        columns.Bound(p => p.OreConsuntivate).Width(120);
+        columns.Bound(p => p.OreConsuntivate).Width(80);
+        columns.Bound(p => p.OreAssenza).Width(80);
         columns.Bound(p => p.Nota).Width(120);
    
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(120);
     })
     .ToolBar(toolbar => toolbar.Create())
-            .Editable(editable => editable.Mode(GridEditMode.InLine))
-    .Pageable()
+            .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("_Editor"))
+    .Pageable() 
     .Sortable()
     .Scrollable()
     .HtmlAttributes(new { style = "height:550px;" })
     .DataSource(dataSource => dataSource
-        .Ajax()
+                .Ajax()
         .PageSize(20)
         .Events(events => events.Error("error_handler"))
         .Model(model =>
         {
             model.Id(p => p.Id);
-            
+            model.Field(x => x.DataCompetenza).DefaultValue(DateTime.Now);
+            model.Field(x => x.Progetto).DefaultValue(((IEnumerable<Progetto>)ViewData["Progetto" + "_Data"]).FirstOrDefault());
+            model.Field(x => x.Fase).DefaultValue(((IEnumerable<Fase>)ViewData["Fase" + "_Data"]).FirstOrDefault());
+            model.Field(x => x.Unita).DefaultValue(((IEnumerable<Unita>) ViewData["Unita" + "_Data"]).FirstOrDefault());
+            model.Field(x => x.Presidio).DefaultValue(((IEnumerable<Presidio>)ViewData["Presidio" + "_Data"]).FirstOrDefault());
+            model.Field(x => x.Jira).DefaultValue(((IEnumerable<Jira>)ViewData["Jira" + "_Data"]).FirstOrDefault());
+            model.Field(x => x.Risorsa).DefaultValue(((IEnumerable<Risorsa>)ViewData["Risorsa" + "_Data"]).FirstOrDefault());
         })
         .Create(update => update.Action("EditingPopup_Create", "Grid"))
         .Read(read => read.Action("EditingPopup_Read", "Grid"))
@@ -68,26 +76,23 @@
         .Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
     )
           )
-<script>
-    function excelExport(e) {
-        var sheet = e.workbook.sheets[0];
+            <script>
+               
+                function excelExport(e) {
 
-        var template1 = kendo.template(this.columns[1].template);
-        var template2 = kendo.template(this.columns[2].template);
-        var template3 = kendo.template(this.columns[3].template);
-        var template4 = kendo.template(this.columns[4].template);
-        var template7 = kendo.template(this.columns[7].template);
-        var data = this.dataSource.view();
-
-        for (var i = 0; i < data.length; i++) {
-            sheet.rows[i + 1].cells[1].value = template1(data[i]);
-            sheet.rows[i + 1].cells[2].value = template2(data[i]);
-            sheet.rows[i + 1].cells[3].value = template3(data[i]);
-            sheet.rows[i + 1].cells[4].value = template4(data[i]);
-            sheet.rows[i + 1].cells[7].value = template7(data[i]);
-        }
-    }
-</script>         
+                    var sheet = e.workbook.sheets[0];
+                    var data = this.dataSource.data();
+                    for (var i = 0; i < data.length; i++) {
+                        for (var z = 0; z < this.columns.length; z++) {
+                            if ( this.columns[z].template !=undefined){
+                                var template = kendo.template(this.columns[z].template);
+                                sheet.rows[i + 1].cells[z].value = template(data[i]);
+                            }
+                
+                        }
+                    }
+                }
+            </script>         
 <script type="text/javascript">
     function error_handler(e) {
         if (e.errors) {
@@ -103,7 +108,7 @@
         }
     }
 
-            </script>
+</script>
 
         </div>
         <!-- Separatore Corpo da Footer -->

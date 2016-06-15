@@ -19,15 +19,19 @@ namespace WebCons.WebUI.Controllers
         private readonly IRepository<Presidio> repositoryPresidio;
         private readonly IRepository<Progetto> repositoryProgetto;
         private readonly IRepository<Unita> repositoryUnita;
+        private readonly IRepository<Jira> repositoryCodiceJira;
+         
+
         public MainController(IRepository<Risorsa> repositoryRisorsa, 
             IRepository<Fase> repositoryFase, IRepository<Presidio> repositoryPresidio, 
-            IRepository<Progetto> repositoryProgetto, IRepository<Unita> repositoryUnita, ISessionManager sessionManager)
+            IRepository<Progetto> repositoryProgetto, IRepository<Unita> repositoryUnita, IRepository<Jira> repositoryCodiceJira,ISessionManager sessionManager)
         {
             this.repositoryFase = repositoryFase;
             this.repositoryRisorsa = repositoryRisorsa;
             this.repositoryPresidio = repositoryPresidio;
             this.repositoryProgetto = repositoryProgetto;
             this.repositoryUnita = repositoryUnita;
+            this.repositoryCodiceJira = repositoryCodiceJira;
         }
         public ActionResult Index(string username, string password)
         {
@@ -60,11 +64,13 @@ namespace WebCons.WebUI.Controllers
                 model.Nominativo = sessionData.UserParameters.Nome + " " + sessionData.UserParameters.Cognome;
             }
 
-            ViewData["Risorsa_Data"] = repositoryRisorsa.FindAll();
-            ViewData["Fase_Data"] =  repositoryFase.FindAll();
-            ViewData["Progetto_Data"] = repositoryProgetto.FindAll();
-            ViewData["Presidio_Data"] = repositoryPresidio.FindAll();
-            ViewData["Unita_Data"] =  repositoryUnita.FindAll();
+            ViewData["Risorsa_Data"] = repositoryRisorsa.FindAll().OrderBy(x=>x.Descrizione);
+            ViewData["Fase_Data"] =  repositoryFase.FindAll().OrderBy(x=>x.Descrizione);
+            ViewData["Progetto_Data"] = repositoryProgetto.FindAll().OrderBy(x=>x.Descrizione);
+            ViewData["Presidio_Data"] = repositoryPresidio.FindAll().OrderBy(x=>x.Descrizione);
+            ViewData["Unita_Data"] =  repositoryUnita.FindAll().OrderBy(x=>x.Descrizione);
+            ViewData["Jira_Data"] = repositoryCodiceJira.FindAll().OrderBy(x=>x.Codice);
+
             return View(model);
         }
 
